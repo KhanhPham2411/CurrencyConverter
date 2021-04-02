@@ -1,41 +1,36 @@
 import React from 'react';
-import { TouchableOpacity, Text, SafeAreaView, StyleSheet, View } from 'react-native';
+import { SafeAreaView} from 'react-native';
+import {Entypo} from '@expo/vector-icons';
+
 import colors from '../constants/colors';
+import { RowItem, RowSeparator } from '../components/RowItem';
 
-const styles = StyleSheet.create({
-  row: {
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-  },
-  text: {
-    fontSize: 16,
-    color: colors.text,
-  },
 
-  separator: {
-    backgroundColor: colors.border,
-    height: StyleSheet.hairlineWidth,
-    marginLeft: 20,
-  }
-})
 export default () => {
   return (
-    <SafeAreaView>
-      <TouchableOpacity style={styles.row}>
-        <Text style={styles.text}>Theme2</Text>
-      </TouchableOpacity>
+    <SafeAreaView style={{paddingTop: 50,}}>
 
-      <View style={styles.separator} />
+      <RowItem 
+        text='Themes'
+        onPress={() => alert('todo!')}
+        rightIcon={<Entypo name="chevron-right" size={20} color={colors.blue} />} 
+      />
 
-      <TouchableOpacity style={styles.row}>
-        <Text style={styles.text}>React Native Basics</Text>
-      </TouchableOpacity>
+      <RowSeparator />
 
-      <View style={styles.separator} />
+      <RowItem 
+        text='React Native Basics'
+        onPress={() => alert('todo!')}
+        rightIcon={<Entypo name="export" size={20} color={colors.blue} />} 
+      />
+
+      <RowSeparator />
       
-      <TouchableOpacity style={styles.row}>
-        <Text style={styles.text}>React Native Example</Text>
-      </TouchableOpacity>
+      <RowItem 
+        text='React Native Example'
+        onPress={() => alert('todo!')}
+        rightIcon={<Entypo name="export" size={20} color={colors.blue} />} 
+      />
     </SafeAreaView>
   );
 };

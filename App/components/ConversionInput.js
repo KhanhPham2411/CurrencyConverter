@@ -5,7 +5,6 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  ProgressViewIOSComponent,
 } from "react-native";
 import colors from '../constants/colors';
 
@@ -17,10 +16,16 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     flexDirection: 'row',
   },
+  containerDisabled: {
+    backgroundColor: colors.offWhite,
+  },
   button: {
     padding: 15,
     borderColor: colors.border,
     borderWidth: 1,
+    backgroundColor: colors.white,
+    borderTopLeftRadius: 5,
+    borderBottomLeftRadius: 5,
   },
   buttonText: {
     fontSize: 18,
@@ -39,8 +44,14 @@ export const ConversionInput = ({
   onButtonPress,
   ...props
 }) => {
+  const containerStyles = [styles.container];
+
+  if (props.editable === false){
+    containerStyles.push(styles.containerDisabled);
+  }
+
   return (
-    <View style={styles.container}>
+    <View style={containerStyles}>
       <TouchableOpacity style={styles.button} onPress={onButtonPress}>
         <Text style={styles.buttonText}>{text}</Text>
       </TouchableOpacity>

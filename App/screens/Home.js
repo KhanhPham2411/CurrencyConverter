@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { ConversionInput } from '../components/ConversionInput';
 
+
 import colors from '../constants/colors';
 
 const screen = Dimensions.get('window');
@@ -54,6 +55,7 @@ export default () => {
         text="GBP"
         onButtonPress={()=> alert("todo!")}
         value="123"
+        editable={false}
       />
     </View>
   );

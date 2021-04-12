@@ -4,4 +4,5 @@ export default {
   blue: '#4f6d7a',
   white: '#fff',
   textLigt: '#979797',
+  offWhite: '#f0f0f0',
 };

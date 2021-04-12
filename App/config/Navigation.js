@@ -10,7 +10,7 @@ const MainStackScreen = () => {
   return (
     <MainStack.Navigator 
       // headerMode="none" 
-      initialRouteName="Options"
+      // initialRouteName="Options"
     >
       <MainStack.Screen 
         name="Home" 

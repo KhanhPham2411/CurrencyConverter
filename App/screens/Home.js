@@ -7,13 +7,18 @@ import {
   Dimensions,
   Text,
   ScrollView,
+  SafeAreaView,
+  Touchable,
 } from "react-native";
 import { format } from "date-fns";
+import { Entypo } from '@expo/vector-icons';
+
 import { ConversionInput } from "../components/ConversionInput";
 
 import colors from "../constants/colors";
 import { Button } from "../components/Button";
 import { KeyboardSpacer } from "../components/KeyboardSpacer";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const screen = Dimensions.get("window");
 
@@ -23,7 +28,9 @@ const styles = StyleSheet.create({
     flex: 1,
     // paddingTop: screen.height*0.2,
   },
-  content: {},
+  content: {
+    // paddingTop: screen.height*0.1,
+  },
   logoContainer: {
     alignItems: "center",
     justifyContent: "center",
@@ -49,9 +56,14 @@ const styles = StyleSheet.create({
     fontSize: 13,
     textAlign: "center",
   },
+  header: {
+    alignItems: "flex-end",
+    marginHorizontal: 20,
+
+  },
 });
 
-export default () => {
+export default ({navigation}) => {
   const baseCurrency = "USD";
   const quoteCurrency = "GBP";
   const conversionRate = 0.8345;
@@ -64,6 +76,13 @@ export default () => {
       <ScrollView scrollEnabled={scrollEnabled}>
         <View style={styles.content}>
           <StatusBar barStyle="dark-content" backgroundColor={colors.blue} />
+
+          <SafeAreaView style={styles.header}>
+            <TouchableOpacity onPress={() => navigation.push('Options')}>
+              <Entypo name="cog" size={32} color={colors.white} />
+            </TouchableOpacity>
+            
+          </SafeAreaView>
 
           <View style={styles.logoContainer}>
             <Image

@@ -5,12 +5,13 @@ import {
   StatusBar,
   Image,
   Dimensions,
-  Text
+  Text,
 } from 'react-native';
 import { format } from 'date-fns';
 import { ConversionInput } from '../components/ConversionInput';
 
 import colors from '../constants/colors';
+import { Button } from '../components/Button';
 
 const screen = Dimensions.get('window');
 
@@ -81,6 +82,8 @@ export default () => {
           date, 'MMMM do, yyyy'
         )}.`}
       </Text>
+
+      <Button text="Reverse Currencies" onPress={() => alert("todo!")} />
     </View>
   );
 };

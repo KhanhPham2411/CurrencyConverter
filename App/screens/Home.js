@@ -112,6 +112,7 @@ export default ({navigation}) => {
             onButtonPress={() => navigation.push("CurrencyList", {
               title: "Base Currency", 
               activeCurrency: baseCurrency,
+              onChange: (currency) => setBaseCurrency(currency),
             })}
             value={value}
             onChangeText={(text) => setValue(text)}
@@ -122,6 +123,7 @@ export default ({navigation}) => {
             onButtonPress={() => navigation.push("CurrencyList", {
               title: "Quote Currency",
               activeCurrency: quoteCurrency,
+              onChange: (currency) => setQuoteCurrency(currency),
             })}
             value={
               value && `${(parseFloat(value)*conversionRate).toFixed(2)}`

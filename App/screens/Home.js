@@ -100,14 +100,20 @@ export default ({navigation}) => {
           <Text style={styles.textHeader}>Currency Converter</Text>
           <ConversionInput
             text={baseCurrency}
-            onButtonPress={() => alert("todo!")}
+            onButtonPress={() => navigation.push("CurrencyList", {
+              title: "Base Currency", 
+              activeCurrency: baseCurrency,
+            })}
             value="123"
             onChangeText={(text) => console.log("text", text)}
             keyboardType="numeric"
           />
           <ConversionInput
             text={quoteCurrency}
-            onButtonPress={() => alert("todo!")}
+            onButtonPress={() => navigation.push("CurrencyList", {
+              title: "Quote Currency",
+              activeCurrency: quoteCurrency,
+            })}
             value="123"
             editable={false}
           />

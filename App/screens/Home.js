@@ -73,7 +73,7 @@ export default ({navigation}) => {
   const conversionRate = 0.8345;
   const date = new Date();
 
-  const {baseCurrency, quoteCurrency, swapCurrencies, setBaseCurrency, setQuoteCurrency} = useContext(ConversionContext);
+  const {baseCurrency, quoteCurrency, swapCurrencies} = useContext(ConversionContext);
 
   const [scrollEnabled, setScrollEnabled] = useState(false);
 
@@ -108,8 +108,7 @@ export default ({navigation}) => {
             text={baseCurrency}
             onButtonPress={() => navigation.push("CurrencyList", {
               title: "Base Currency", 
-              activeCurrency: baseCurrency,
-              onChange: (currency) => setBaseCurrency(currency),
+              isBaseCurrency: true,
             })}
             value={value}
             onChangeText={(text) => setValue(text)}
@@ -119,8 +118,7 @@ export default ({navigation}) => {
             text={quoteCurrency}
             onButtonPress={() => navigation.push("CurrencyList", {
               title: "Quote Currency",
-              activeCurrency: quoteCurrency,
-              onChange: (currency) => setQuoteCurrency(currency),
+              isBaseCurrency: false,
             })}
             value={
               value && `${(parseFloat(value)*conversionRate).toFixed(2)}`
